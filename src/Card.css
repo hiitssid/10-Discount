@@ -1,37 +1,39 @@
 .sellCard {
-    width: 150px;
-    height: 100px;
-    border-radius: 20px;
-    cursor: pointer;
-    border-radius: 15px;
-    box-shadow: 1px 0px 10px white;
-    /* text-align: center; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    position: relative;
-  }
-  .sellCard:hover {
-    background-color: #3b3b3b;
-  }
-  .sellPrice{
-    color: rgb(115, 207, 115);
-  }
+  padding: 40px;
+  width: 150px;
+  border-radius: 20px;
+  cursor: pointer;
+  border-radius: 15px;
+  box-shadow: 1px 0px 10px white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  flex-wrap: wrap;
+}
 
-  .copied-msg {
-    color: rgb(0, 255, 255);
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-  
+.sellCard:hover {
+  background-color: #3b3b3b;
+}
+
+.sellPrice {
+  color: rgb(115, 207, 115);
+}
+
+.copied-msg {
+  color: rgb(0, 255, 255);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
 
 
-  /* bigger than 480px */
-  @media screen and (min-width: 480px) { 
-    .sellCard {
-        height: auto;
-    }
+
+/* bigger than 480px */
+@media screen and (min-width: 480px) {
+  .sellCard {
+    height: auto;
   }
+}

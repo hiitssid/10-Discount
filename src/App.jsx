@@ -4,7 +4,7 @@ import "./App.css";
 const localStorageKey = 'thisIsKey'
 export default function App() {
   //initialze state, mrp variable is set to store the number from input element
-  const [mrp, setMRP] = useState([]);
+  const [mrp, setMRP] = useState(0);
   //sellingPrice is calculated at 10% discount
   const sellingPrice = mrp - mrp * 0.1;
   // console.log(`MRP:${mrp}, SP:${sellingPrice}`)
@@ -12,7 +12,7 @@ export default function App() {
   //every keystroke is saved to state mrp with function setMRP, dom method of (event.target.value) is used to get the value from input field
 
   function handleChange(event) {
-    setMRP(event.target.value);
+    setMRP(Number(event.target.value))
   }
 
   //array price is decleared with empty object to store the mrp and sellingPrice data in the object
@@ -24,16 +24,21 @@ export default function App() {
 
   //when pressed 'Add' button, new object is added to price array with mrp and sellingPrice,
   function handleClick() {
-    //to check if the price entered is already in price array : .some() method is used to check duplicate
-    const isDuplicate = price.some(item => item.mrp === mrp)
-    if(!isDuplicate){
-      //...prevState will spread the older elements in the array and {mrp:mrp,sp:sellingPrice} will add current object to the array
-      setPrice((prevState) => [...prevState, { mrp: mrp, sp: sellingPrice }]);
-    }else{
-      window.alert('The value is already added.')
+    if (!mrp) {
+      //if no input or 0 is typed
+      window.alert("Invalid Input");
+    } else {
+      //if the price entered is already in price array : .some() method is used to check duplicate
+      const isDuplicate = price.some((item) => item.mrp === mrp);
+      if (!isDuplicate) {
+        //...prevState will spread the older elements in the array and {mrp:mrp,sp:sellingPrice} will add current object to the array
+        setPrice((prevState) => [...prevState, { mrp: mrp, sp: sellingPrice }]);
+      } else {
+        window.alert("Repeat Entry");
+      }
     }
   }
-  //setItem to localStorege : 
+  //setItem to localStorege :
   useEffect(() => {
     localStorage.setItem(localStorageKey, JSON.stringify(price));
   }, [price]);
