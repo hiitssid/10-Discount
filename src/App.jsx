@@ -7,7 +7,8 @@ export default function App() {
   const [mrp, setMRP] = useState([]);
   //sellingPrice is calculated at 10% discount
   const sellingPrice = mrp - mrp * 0.1;
-  console.log(`MRP:${mrp}, SP:${sellingPrice}`);
+  // console.log(`MRP:${mrp}, SP:${sellingPrice}`)
+  
   //every keystroke is saved to state mrp with function setMRP, dom method of (event.target.value) is used to get the value from input field
 
   function handleChange(event) {
