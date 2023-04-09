@@ -17,7 +17,9 @@
 .sellCard:hover {
   background-color: #3b3b3b;
 }
-
+.sellCard:active{
+  background-color: #000;
+}
 .sellPrice {
   color: rgb(115, 207, 115);
 }
