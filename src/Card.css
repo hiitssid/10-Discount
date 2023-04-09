@@ -1,0 +1,19 @@
+.sellCard {
+    width: 150px;
+    border-radius: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 1px 0px 10px white;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .sellCard:hover {
+    background-color: #3b3b3b;
+  }
+  .sellPrice{
+    color: rgb(115, 207, 115);
+  }
