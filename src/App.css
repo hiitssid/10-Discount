@@ -1,6 +1,7 @@
 .app-wrapper{
     margin: 20px 10px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
 }
@@ -34,4 +35,11 @@ input {
     border: 1px solid #444;
     border-radius: 5px;
     display: block;
+  }
+
+/* bigger than 480px */
+  @media screen and (min-width: 480px) { 
+    .app-wrapper{
+        justify-content: start;
+    }
   }

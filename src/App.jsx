@@ -23,15 +23,23 @@ export default function App() {
 
   //when pressed 'Add' button, new object is added to price array with mrp and sellingPrice,
   function handleClick() {
-    //...prevState will spread the older elements in the array and {mrp:mrp,sp:sellingPrice} will add current object to the array
-    setPrice((prevState) => [...prevState, { mrp: mrp, sp: sellingPrice }]);
+    //to check if the price entered is already in price array : .some() method is used to check duplicate
+    const isDuplicate = price.some(item => item.mrp === mrp)
+    if(!isDuplicate){
+      //...prevState will spread the older elements in the array and {mrp:mrp,sp:sellingPrice} will add current object to the array
+      setPrice((prevState) => [...prevState, { mrp: mrp, sp: sellingPrice }]);
+    }else{
+      window.alert('The value is already added.')
+    }
   }
   //setItem to localStorege : 
   useEffect(() => {
     localStorage.setItem(localStorageKey, JSON.stringify(price));
   }, [price]);
 
+  //sorting the object according to price.mrp
 const sortedPrice = price.sort((a,b)=>a.mrp - b.mrp);
+  //mapping the sorted data to Card element and sending datas via props to function Card() and rendering to DOM via {card}
 const card = sortedPrice.map(item => {
   return <Card key={item.index} mrp={item.mrp} sp={item.sp}/>
 })
